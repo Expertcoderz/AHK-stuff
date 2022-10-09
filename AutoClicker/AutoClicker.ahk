@@ -9,7 +9,7 @@
 ;@Ahk2Exe-SetVersion 1.0.0
 
 class AutoClickerGui extends Gui {
-    __new() {
+    __New() {
         super.__New("+AlwaysOnTop -MinimizeBox", "Auto-Clicker", this)
         this.OnEvent("Escape", (*) => this.Destroy())
 
