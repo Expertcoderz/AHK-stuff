@@ -6,7 +6,7 @@
 ;@Ahk2Exe-SetMainIcon Stopwatch.ico
 ;@Ahk2Exe-SetCompanyName Expertcoderz
 ;@Ahk2Exe-SetDescription Basic Stopwatch
-;@Ahk2Exe-SetVersion 1.0.0
+;@Ahk2Exe-SetVersion 1.0.1
 
 formatDuration(seconds) {
     local hours, minutes
@@ -20,7 +20,7 @@ formatDuration(seconds) {
 
 class StopwatchGui extends Gui {
     __New() {
-        super.__New("+AlwaysOnTop -MinimizeBox +Owner", "Stopwatch", this)
+        super.__New("+AlwaysOnTop -MinimizeBox", "Stopwatch", this)
         this.OnEvent("Escape", "Close")
         this.OnEvent("Close", "Close")
 
