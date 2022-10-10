@@ -14,6 +14,8 @@ A pretty advanced auto-clicking utility, featuring:
 * option to automatically stop after a certain number of clicks, after a certain duration has elapsed, or both
 * cursor auto-positioning options (user-controlled \[off] / fixed point / fixed box)
 
+*Note:* In order for the clicks to be effective on UI belonging to elevated applications, AutoClicker must be run with administrative privileges.
+
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/81153405/194785758-bb8b6ae4-9a10-4ee5-a57e-0dff539e937b.png)
