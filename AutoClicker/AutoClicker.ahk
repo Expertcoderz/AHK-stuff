@@ -5,8 +5,8 @@
 
 ;@Ahk2Exe-SetMainIcon AutoClicker.ico
 ;@Ahk2Exe-SetCompanyName Expertcoderz
-;@Ahk2Exe-SetDescription Advanced Auto-Clicking Utility
-;@Ahk2Exe-SetVersion 1.0.0
+;@Ahk2Exe-SetDescription AHK Auto-Clicker
+;@Ahk2Exe-SetVersion 1.0.1
 
 class AutoClickerGui extends Gui {
     __New() {
@@ -264,10 +264,10 @@ class CursorPositionConfigurationGui extends Gui {
     }
 
     Submit(*) {
-        if (this["BoundaryMode"].Value = 2 && !(this["XPos"].Value && this["YPos"].Value))
-            || (this["BoundaryMode"].Value = 3 && !(this["XMinPos"].Value && this["YMinPos"].Value && this["XMaxPos"].Value && this["YMaxPos"].Value))
+        if (this["BoundaryMode"].Value = 2 && (this["XPos"].Value = "" || this["YPos"].Value  == ""))
+            || (this["BoundaryMode"].Value = 3 && (this["XMinPos"].Value = "" || this["YMinPos"].Value = "" || this["XMaxPos"].Value = "" || this["YMaxPos"].Value = ""))
         {
-            MsgBox "Missing field(s).", "Error", "Iconx 8192"
+            MsgBox "Empty field(s).", "Error", "Iconx 8192"
             return
         }
         this.Parent.CursorPosConfigData := super.Submit()
