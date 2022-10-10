@@ -1,5 +1,7 @@
 # WindowsSandboxLauncher
 
+[**(Download Link)**](https://github.com/Expertcoderz/AHK-stuff/raw/main/WindowsSandboxLauncher/WindowsSandboxLauncher.exe)
+
 **Released:** 2022-10-10 UTC • **Updated:** 2022-10-10 UTC
 
 ---
