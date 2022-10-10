@@ -68,15 +68,15 @@ class WindowsSandboxLauncher extends Gui {
 
         this.AddGroupBox("xm w165 r3", "Memory Limit")
         this.AddCheckbox("xp+20 yp+20 vMemoryConfigCheckbox", "Configure &memory limit:")
-        .OnEvent("Click", "ToggledMemoryConfig")
+            .OnEvent("Click", "ToggledMemoryConfig")
         this.AddEdit("yp+25 w70 vMemoryConfigEdit Disabled Limit Number", "2048")
         this.AddUpDown("Range1024-8192", 2048)
         this.AddText("xp+75 yp+3 wp+5 vMemoryConfigUnitText Disabled", "MB")
 
         this.AddButton("xm w80 h25 vLaunchButton Default", "Launch")
-        .OnEvent("Click", "Launch")
+            .OnEvent("Click", "Launch")
         this.AddButton("yp w80 h25 vCancelButton", "Cancel")
-        .OnEvent("Click", "Cancel")
+            .OnEvent("Click", "Cancel")
     }
 
     ToggledMemoryConfig(checkbox, *) {
