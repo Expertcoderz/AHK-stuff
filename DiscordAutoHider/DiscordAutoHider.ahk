@@ -7,7 +7,7 @@
 ;@Ahk2Exe-SetDescription AHK Discord Auto-Hider
 ;@Ahk2Exe-SetVersion 1.0.0
 
-WIN_TITLE := "ahk_exe DiscordPTB.exe"
+WIN_TITLE := "ahk_exe Discord.exe"
 
 DetectHiddenWindows true
 
