@@ -6,12 +6,13 @@
 ;@Ahk2Exe-SetMainIcon AutoClicker.ico
 ;@Ahk2Exe-SetCompanyName Expertcoderz
 ;@Ahk2Exe-SetDescription AHK Auto-Clicker
-;@Ahk2Exe-SetVersion 1.0.1
+;@Ahk2Exe-SetVersion 1.0.2
 
 class AutoClickerGui extends Gui {
     __New() {
         super.__New("+AlwaysOnTop -MinimizeBox", "Auto-Clicker", this)
-        this.OnEvent("Escape", (*) => this.Destroy())
+        this.OnEvent("Escape", "Close")
+        this.OnEvent("Close", "Close")
 
         this.AddText("xm ym+2", "Button:")
         this.AddDropDownList("yp-2 xm+40 vClickButtonDropDownList Choose1", ["Left", "Right", "Middle"])
@@ -46,11 +47,11 @@ class AutoClickerGui extends Gui {
             .OnEvent("Click", "OpenCursorPosConfigGui")
 
         /*this.AddGroupBox("xm w160 h75", "Hotkeys")
-
+        
         this.AddCheckbox("xm+10 yp+20 vStartHotkeyCheckbox Checked", "Start:")
             .OnEvent("Click", "ToggledStartHotkey")
         this.AddHotkey("xp+50 yp-2 w90 vStartHotkey", "^F2")
-
+        
         this.AddCheckbox("xm+10 yp+30 vStopHotkeyCheckbox Checked", "Stop:")
             .OnEvent("Click", "ToggledStopHotkey")
         this.AddHotkey("xp+50 yp-2 w90 vStopHotkey", "^F3")*/
@@ -70,6 +71,7 @@ class AutoClickerGui extends Gui {
         Hotkey this.startHotkey, this.Start
         Hotkey this.stopHotkey, this.Stop*/
 
+        this.isActive := true
         this.clickCount := 0
         this.startTime := 0
     }
@@ -99,7 +101,7 @@ class AutoClickerGui extends Gui {
         if this.startHotkey
             Hotkey this.startHotkey, checkbox.Value ? "On" : "Off"
     }
-
+    
     ChangedStartHotkey(hotkey, *) {
         if this.startHotkey
             Hotkey this.startHotkey, "Off"
@@ -107,13 +109,13 @@ class AutoClickerGui extends Gui {
         if hotkey.Value
             Hotkey hotkey.Value, this.Start, this["StartHotkeyCheckbox"].Value ? "On" : "Off"
     }
-
+    
     ToggledStopHotkey(checkbox, *) {
         this["StopHotkey"].Enabled := checkbox.Value
         if this.stopHotkey
             Hotkey this.stopHotkey, checkbox.Value ? "On" : "Off"
     }
-
+    
     ChangedStopHotkey(hotkey, *) {
         if this.stopHotkey
             Hotkey this.stopHotkey, "Off"
@@ -130,7 +132,7 @@ class AutoClickerGui extends Gui {
         this.clickCount := 0
         this.startTime := A_TickCount
 
-        while this["StartButton"] && !this["StartButton"].Enabled {
+        while this.isActive && !this["StartButton"].Enabled {
             try {
                 local stopCond1 := this["StopAfterNumClicksCheckbox"].Value && this.clickCount >= this["StopAfterNumClicksEdit"].Value
                 local stopCond2 := this["StopAfterDurationCheckbox"].Value && (A_TickCount - this.startTime) / 1000 >= this["StopAfterDurationEdit"].Value
@@ -162,6 +164,12 @@ class AutoClickerGui extends Gui {
         this["StartButton"].Enabled := true
         this["StartButton"].Focus()
     }
+
+    Close(*) {
+        this.isActive := false
+        this.Destroy()
+        ExitApp
+    }
 }
 
 class CursorPositionConfigurationGui extends Gui {
@@ -169,7 +177,7 @@ class CursorPositionConfigurationGui extends Gui {
         this.Parent := autoclickergui
         this.isActive := true
 
-        super.__New("+AlwaysOnTop -MinimizeBox +Owner" autoclickergui.Hwnd, "Cursor Positioning", this)
+        super.__New("+AlwaysOnTop -SysMenu -MinimizeBox +Owner" autoclickergui.Hwnd, "Cursor Positioning", this)
         this.OnEvent("Escape", "Close")
         this.OnEvent("Close", "Close")
 
@@ -264,7 +272,7 @@ class CursorPositionConfigurationGui extends Gui {
     }
 
     Submit(*) {
-        if (this["BoundaryMode"].Value = 2 && (this["XPos"].Value = "" || this["YPos"].Value  == ""))
+        if (this["BoundaryMode"].Value = 2 && (this["XPos"].Value = "" || this["YPos"].Value == ""))
             || (this["BoundaryMode"].Value = 3 && (this["XMinPos"].Value = "" || this["YMinPos"].Value = "" || this["XMaxPos"].Value = "" || this["YMaxPos"].Value = ""))
         {
             MsgBox "Empty field(s).", "Error", "Iconx 8192"
