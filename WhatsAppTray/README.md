@@ -4,6 +4,8 @@
 
 **Released:** 2022-10-10 UTC | **Updated:** 2022-10-10 UTC
 
+⚠️ 2022-10-15 UPDATE: THIS MAY NOT FUNCTION PROPERLY ON THE LATEST VERSION OF WHATSAPP DESKTOP.
+
 ---
 
 A program that reduces [WhatsApp Desktop](https://apps.microsoft.com/store/detail/whatsapp/9NKSQGP7F2NH) into a taskbar tray icon (as with Discord) which can be
