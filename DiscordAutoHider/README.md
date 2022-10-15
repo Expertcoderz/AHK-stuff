@@ -2,7 +2,7 @@
 
 [**(Download Link)**](https://github.com/Expertcoderz/AHK-stuff/raw/main/DiscordAutoHider/DiscordAutoHider.exe)
 
-**Released:** 2022-10-10 UTC • **Updated:** 2022-10-10 UTC
+**Released:** 2022-10-10 UTC • **Updated:** 2022-10-15 UTC
 
 ---
 
