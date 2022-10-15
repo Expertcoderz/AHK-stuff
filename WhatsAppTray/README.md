@@ -2,21 +2,17 @@
 
 [**(Download Link)**](https://github.com/Expertcoderz/AHK-stuff/raw/main/WhatsAppTray/WhatsAppTray.exe)
 
-**Released:** 2022-10-10 UTC | **Updated:** 2022-10-10 UTC
-
-⚠️ 2022-10-15 UPDATE: THIS MAY NOT FUNCTION PROPERLY ON THE LATEST VERSION OF WHATSAPP DESKTOP.
+**Released:** 2022-10-15 UTC | **Updated:** 2022-10-15 UTC
 
 ---
 
-A program that reduces [WhatsApp Desktop](https://apps.microsoft.com/store/detail/whatsapp/9NKSQGP7F2NH) into a taskbar tray icon (as with Discord) which can be
-double-clicked to restore WhatsApp, in contrast to the regular cluttery taskbar buttons.
+A program that reduces [WhatsApp Desktop](https://apps.microsoft.com/store/detail/whatsapp/9NKSQGP7F2NH) into a taskbar tray icon which can be
+double-clicked to open WhatsApp. Designed as a remedy for cluttery taskbar buttons.
 
-WhatsAppTray runs in the background and only shows the tray icon when WhatsApp Desktop is running as well.
-When selecting the *Quit WhatsApp* option in the tray menu, the user will be prompted on whether to close the WhatsAppTray program together with WhatsApp Desktop
-(or just the latter).
+WhatsApp Desktop is automatically closed (minimized to the tray) whenever another window is focused, unless the *Close automatically* option in the tray menu is unchecked.
 
-WhatsApp Desktop is automatically minimized to the tray whenever another window is focused, unless the *Hide automatically* option in the tray menu is unchecked.
+**⚠️ Note:** Microsoft Store apps including WhatsApp Desktop are installed under the `%ProgramFiles%\WindowsApps` system directory. WhatsAppTray requires special permission to enumerate folders under `WindowsApps` to look for the executable file for WhatsApp Desktop (`WhatsApp.exe`), hence it must normally be run with administrator privileges to function.
 
 ## Screenshots
 
-![image](https://user-images.githubusercontent.com/81153405/194828847-c77db20f-086d-4d13-8f87-1b2868bf934a.png)
+![image](https://user-images.githubusercontent.com/81153405/195980124-1014dc50-d0ff-4d6e-a86a-acdaf5befb76.png)
