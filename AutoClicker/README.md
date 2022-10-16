@@ -6,6 +6,14 @@
 
 ---
 
+**NOTICE:** This script has been succeeded by the (far more advanced) *EC Autoclicker* which can be found in a separate repository here:
+
+https://github.com/Expertcoderz/EC-Autoclicker
+
+From this point on, this AutoClicker program will only be updated to fix bugs where necessary, and is unlikely to receive any new features.
+
+---
+
 A pretty advanced auto-clicking utility, featuring:
 
 * left/right/middle clicking
